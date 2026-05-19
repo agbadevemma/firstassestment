@@ -120,7 +120,7 @@ const form = useForm<FormValues, any, FormValues>({
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="price">Price (USD)</Label>
+              <Label htmlFor="price">Price (NGN)</Label>
               <Input
                 id="price"
                 type="number"
