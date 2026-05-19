@@ -26,9 +26,11 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               </Button>
               <Avatar className="h-8 w-8">
                 <AvatarFallback className="bg-primary text-primary-foreground text-xs">
-                  AK
+                  EO
                 </AvatarFallback>
+            
               </Avatar>
+                 <span className="text-sm"> Emmanuel Olaniyi</span>
             </div>
           </header>
           <main className="flex-1 p-4 md:p-6">{children}</main>

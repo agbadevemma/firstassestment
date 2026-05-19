@@ -1,3 +1,5 @@
+
+"use client"
 import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -39,22 +41,13 @@ import {
 import { ProductFormDialog } from "@/components/products/product-form-dialog";
 import { DeleteProductDialog } from "@/components/products/delete-product-dialog";
 import { ProductDetailsSheet } from "@/components/products/product-details-sheet";
-import { Metadata } from "next";
+import { formatPrice } from "@/lib/format";
 
-export const metadata: Metadata = {
-  title: "Products — Northwind Admin",
-  description:
-    "Manage your product catalog: search, filter, add, edit and delete products.",
-};
+
 
 const PAGE_SIZE = 10;
 
-function formatPrice(p: number) {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(p);
-}
+
 
 function StockBadge({ stock }: { stock: number }) {
   if (stock <= 0)
@@ -69,7 +62,7 @@ function StockBadge({ stock }: { stock: number }) {
   );
 }
 
-function ProductsPage() {
+export default function ProductsPage() {
   const { data, isLoading, isError, error, refetch } = useQuery({
     queryKey: ["products"],
     queryFn: listProducts,
