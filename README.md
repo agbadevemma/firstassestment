@@ -1,6 +1,10 @@
-#  Emmanuel Olaniyi Assessment Docs
+# Emmanuel Olaniyi Assessment Project
 
 A modern Next.js application built with React 19, TypeScript, and Tailwind CSS. This project uses Next.js 16.2.6 with the App Router for server-side capabilities and client-side interactivity.
+
+## 🚀 Live Demo
+
+Check out the live application here: **[https://emmanuel-olaniyi-assessment.vercel.app/dashboard/products](https://emmanuel-olaniyi-assessment.vercel.app/dashboard/products)**
 
 ## Table of Contents
 
