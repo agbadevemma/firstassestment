@@ -12,6 +12,7 @@ Check out the live application here: **[https://emmanuel-olaniyi-assessment.verc
 - [Project Structure](#project-structure)
 - [Setup & Installation](#setup--installation)
 - [Development](#development)
+- [Screenshots](#screenshots)
 - [API & Data Management](#api--data-management)
 - [Scripts Reference](#scripts-reference)
 
@@ -113,6 +114,92 @@ npm run lint
 ```
 
 The project uses ESLint v9 with Next.js-specific rules.
+
+## Screenshots
+
+### Product Dashboard - Main View
+![alt text](/public/image-2.png)
+
+The main dashboard displays all products in a responsive table format with:
+- **Search functionality** to find products by name
+- **Category filtering** across 6 categories (Electronics, Apparel, Home, Books, Beauty, Sports)
+- **Stock status filtering** (Any stock, In Stock, Out of Stock)
+- **Pagination** showing 10 products per page
+- **Quick actions** for View, Edit, and Delete on each row
+
+**Key Features Shown:**
+- ✅ Product name and category badges
+- ✅ Price in proper currency format
+- ✅ Stock status with color-coded badges (green = in stock, red = out of stock)
+- ✅ Created date for tracking
+- ✅ Action buttons for view, edit, and delete operations
+
+**Responsive Design:**
+- Desktop: Full table view with all columns visible
+- Mobile: Card layout with essential info and action buttons
+
+### Features in Action
+
+**Product Details Panel (Side Sheet):**
+![alt text](/public/image-3.png)
+
+Click the "View" button to open the product details side panel showing:
+- **Product Title** - "Aurora Wireless Headphones"
+- **Price Display** - Large, prominent price (₦139.64)
+- **Stock Badge** - "In Stock" indicator with green styling
+- **Product Information:**
+  - Category: Electronics
+  - Stock: 48 units available
+  - Created: May 20, 2026
+- **Description** - Full product description with detailed information
+- **Product ID** - Unique identifier for the product (05141dea-4100-43f9-9087-08309a1986ee)
+- **Responsive Layout** - Side panel slides in from the right on desktop, adapts on mobile
+
+**Add/Edit Product Modal:**
+
+The modal dialog provides a clean form interface for adding or editing products:
+
+**Add Product Modal:**
+![alt text](/public/image-1.png)
+- **Title**: "Add product" 
+- **Subtitle**: "Fill in the details to add a new product."
+- **Form Fields** (all with validation):
+  - **Name**: Empty text input for product name
+  - **Price (NGN)**: Numeric input starting at 0
+  - **Stock quantity**: Integer input starting at 0
+  - **Category**: Dropdown selector with 6 categories (Electronics, Apparel, Home, Books, Beauty, Sports) - "Select a category" placeholder
+  - **Description**: Empty textarea for product details
+- **Action Buttons**:
+  - **Cancel** - Close modal without saving
+  - **Create product** - Submit form and add new product
+- **Real-time Validation**: Fields validate as user types with helpful error messages
+- **Responsive Design**: Modal adapts to mobile/tablet screens
+
+**Edit Product Modal:**
+![alt text](/public/image-4.png)
+- **Title**: "Edit product" 
+- **Subtitle**: "Update the product details below."
+- **Form Fields**: Same as Add, but **pre-filled** with current product data
+- **Action Button**: "Save changes" instead of "Create product"
+- **Pre-filled Values**: All fields are populated with current product information for easy editing
+
+**Delete Confirmation Dialog:**
+
+A protective confirmation dialog prevents accidental deletions:
+
+**Dialog Features:**
+![alt text](/public/image-5.png)
+- **Title**: "Delete this product?" - Clear action confirmation
+- **Warning Message**: 
+  - Shows the specific product name being deleted (e.g., "Aurora Wireless Headphones")
+  - Clear consequence: "This will permanently remove... from your catalog"
+  - Strong warning: "This action cannot be undone"
+- **Action Buttons**:
+  - **Cancel** - Close dialog and abort deletion
+  - **Delete** - Red/destructive button to confirm deletion (prevents accidental clicks)
+
+
+
 
 ## API & Data Management
 
