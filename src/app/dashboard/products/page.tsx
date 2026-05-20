@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import { useMemo, useState, lazy, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -32,40 +31,34 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  CATEGORIES,
-  listProducts,
-  type Product,
-} from "@/lib/products-store";
+import { CATEGORIES, listProducts, type Product } from "@/lib/products-store";
 import { formatPrice } from "@/lib/format";
 import dynamic from "next/dynamic";
 
 const ProductFormDialog = dynamic(
-  () => import("@/components/products/product-form-dialog"),{
-    ssr: false, 
-  }
+  () => import("@/components/products/product-form-dialog"),
+  {
+    ssr: false,
+  },
 );
 
 const DeleteProductDialog = dynamic(
-  () => import("@/components/products/delete-product-dialog"),{
-    ssr: false, 
-  }
+  () => import("@/components/products/delete-product-dialog"),
+  {
+    ssr: false,
+  },
 );
 const ProductDetailsSheet = dynamic(
-  () => import("@/components/products/product-details-sheet"),{
-    ssr: false, 
-  }
+  () => import("@/components/products/product-details-sheet"),
+  {
+    ssr: false,
+  },
 );
-
-
 
 const PAGE_SIZE = 10;
 
-
-
 function StockBadge({ stock }: { stock: number }) {
-  if (stock <= 0)
-    return <Badge variant="destructive">Out of Stock</Badge>;
+  if (stock <= 0) return <Badge variant="destructive">Out of Stock</Badge>;
   return (
     <Badge
       variant="secondary"
@@ -111,7 +104,7 @@ export default function ProductsPage() {
   );
 
   return (
-  <>
+    <>
       <div className="mx-auto max-w-7xl space-y-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
@@ -364,29 +357,24 @@ export default function ProductsPage() {
         </Card>
       </div>
 
-      <Suspense fallback={null}>
-        <ProductFormDialog open={addOpen} onOpenChange={setAddOpen} />
-      </Suspense>
-      <Suspense fallback={null}>
-        <ProductFormDialog
-          open={!!editing}
-          onOpenChange={(v) => !v && setEditing(null)}
-          product={editing}
-        />
-      </Suspense>
-      <Suspense fallback={null}>
-        <DeleteProductDialog
-          product={deleting}
-          onOpenChange={(v) => !v && setDeleting(null)}
-        />
-      </Suspense>
-      <Suspense fallback={null}>
-        <ProductDetailsSheet
-          product={viewing}
-          onOpenChange={(v) => !v && setViewing(null)}
-        />
-      </Suspense>
-  </>
+      <ProductFormDialog open={addOpen} onOpenChange={setAddOpen} />
+
+      <ProductFormDialog
+        open={!!editing}
+        onOpenChange={(v) => !v && setEditing(null)}
+        product={editing}
+      />
+
+      <DeleteProductDialog
+        product={deleting}
+        onOpenChange={(v) => !v && setDeleting(null)}
+      />
+
+      <ProductDetailsSheet
+        product={viewing}
+        onOpenChange={(v) => !v && setViewing(null)}
+      />
+    </>
   );
 }
 
