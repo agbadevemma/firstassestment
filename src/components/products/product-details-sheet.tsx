@@ -8,7 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { Product } from "@/lib/products-store";
-import { formatPrice } from "@/lib/format";
+import { formatDate, formatPrice } from "@/lib/format";
 
 
 
@@ -57,11 +57,7 @@ export default function ProductDetailsSheet({
                 <div className="col-span-2">
                   <p className="text-muted-foreground">Created</p>
                   <p className="mt-1 font-medium">
-                    {new Date(product.createdAt).toLocaleDateString(undefined, {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+                    {formatDate(product.createdAt)}
                   </p>
                 </div>
               </div>

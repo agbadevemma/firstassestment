@@ -32,7 +32,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { CATEGORIES, listProducts, type Product } from "@/lib/products-store";
-import { formatPrice } from "@/lib/format";
+import { formatDate, formatPrice } from "@/lib/format";
 import dynamic from "next/dynamic";
 
 const ProductFormDialog = dynamic(
@@ -226,7 +226,7 @@ export default function ProductsPage() {
                               <StockBadge stock={p.stock} />
                             </TableCell>
                             <TableCell className="text-muted-foreground">
-                              {new Date(p.createdAt).toLocaleDateString()}
+                              {formatDate(p.createdAt)}
                             </TableCell>
                             <TableCell
                               className="text-right"
