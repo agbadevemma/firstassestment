@@ -1,4 +1,4 @@
-import { DashboardLayout } from "@/components/dashboard-layout";
+import DashboardLayout from "@/components/dashboard-layout";
 
 export default function RootLayout({
   children,
@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-full flex flex-col">
+    <div className="min-h-full ">
       <DashboardLayout>{children} </DashboardLayout>
     </div>
   );
