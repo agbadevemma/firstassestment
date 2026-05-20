@@ -312,29 +312,3 @@ Clear cache and reinstall:
 rm -rf node_modules package-lock.json
 npm install
 ```
-
-### TypeScript Errors on Start
-
-Rebuild TypeScript cache:
-
-```bash
-npx tsc --noEmit
-```
-
-### Build Fails
-
-1. Clear the `.next` directory:
-   ```bash
-   rm -rf .next
-   ```
-
-2. Rebuild:
-   ```bash
-   npm run build
-   ```
-
-3. Check for TypeScript errors:
-   ```bash
-   npx tsc --noEmit
-   ```
-
