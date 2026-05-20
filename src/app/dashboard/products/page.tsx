@@ -1,6 +1,6 @@
 
 "use client"
-import { useMemo, useState } from "react";
+import { useMemo, useState, lazy, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import {
   Plus,
@@ -12,7 +12,6 @@ import {
   ChevronRight,
   PackageX,
 } from "lucide-react";
-import { DashboardLayout } from "@/components/dashboard-layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -38,10 +37,25 @@ import {
   listProducts,
   type Product,
 } from "@/lib/products-store";
-import { ProductFormDialog } from "@/components/products/product-form-dialog";
-import { DeleteProductDialog } from "@/components/products/delete-product-dialog";
-import { ProductDetailsSheet } from "@/components/products/product-details-sheet";
 import { formatPrice } from "@/lib/format";
+import dynamic from "next/dynamic";
+
+const ProductFormDialog = dynamic(
+  () => import("@/components/products/product-form-dialog"),{
+    ssr: false, 
+  }
+);
+
+const DeleteProductDialog = dynamic(
+  () => import("@/components/products/delete-product-dialog"),{
+    ssr: false, 
+  }
+);
+const ProductDetailsSheet = dynamic(
+  () => import("@/components/products/product-details-sheet"),{
+    ssr: false, 
+  }
+);
 
 
 
@@ -55,7 +69,7 @@ function StockBadge({ stock }: { stock: number }) {
   return (
     <Badge
       variant="secondary"
-      className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100"
+      className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 "
     >
       In Stock · {stock}
     </Badge>
@@ -192,9 +206,9 @@ export default function ProductsPage() {
                           <TableHead>Name</TableHead>
                           <TableHead>Category</TableHead>
                           <TableHead className="text-right">Price</TableHead>
-                          <TableHead>Stock</TableHead>
+                          <TableHead className="text-center">Stock</TableHead>
                           <TableHead>Created</TableHead>
-                          <TableHead className="w-[140px] text-right">
+                          <TableHead className="w-35 text-right">
                             Actions
                           </TableHead>
                         </TableRow>
@@ -350,20 +364,28 @@ export default function ProductsPage() {
         </Card>
       </div>
 
-      <ProductFormDialog open={addOpen} onOpenChange={setAddOpen} />
-      <ProductFormDialog
-        open={!!editing}
-        onOpenChange={(v) => !v && setEditing(null)}
-        product={editing}
-      />
-      <DeleteProductDialog
-        product={deleting}
-        onOpenChange={(v) => !v && setDeleting(null)}
-      />
-      <ProductDetailsSheet
-        product={viewing}
-        onOpenChange={(v) => !v && setViewing(null)}
-      />
+      <Suspense fallback={null}>
+        <ProductFormDialog open={addOpen} onOpenChange={setAddOpen} />
+      </Suspense>
+      <Suspense fallback={null}>
+        <ProductFormDialog
+          open={!!editing}
+          onOpenChange={(v) => !v && setEditing(null)}
+          product={editing}
+        />
+      </Suspense>
+      <Suspense fallback={null}>
+        <DeleteProductDialog
+          product={deleting}
+          onOpenChange={(v) => !v && setDeleting(null)}
+        />
+      </Suspense>
+      <Suspense fallback={null}>
+        <ProductDetailsSheet
+          product={viewing}
+          onOpenChange={(v) => !v && setViewing(null)}
+        />
+      </Suspense>
   </>
   );
 }
