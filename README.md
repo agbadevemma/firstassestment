@@ -1,4 +1,4 @@
-#  Emmanuel Olaniyi Assesment Docs
+#  Emmanuel Olaniyi Assessment Docs
 
 A modern Next.js application built with React 19, TypeScript, and Tailwind CSS. This project uses Next.js 16.2.6 with the App Router for server-side capabilities and client-side interactivity.
 
