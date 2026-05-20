@@ -33,7 +33,7 @@ import {
 import { FormValues, schema } from "@/lib/validation";
 
 
-export function ProductFormDialog({
+export default  function ProductFormDialog({
   open,
   onOpenChange,
   product,

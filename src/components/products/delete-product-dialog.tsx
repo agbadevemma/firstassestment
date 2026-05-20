@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { deleteProduct, type Product } from "@/lib/products-store";
 
-export function DeleteProductDialog({
+export default function DeleteProductDialog({
   product,
   onOpenChange,
 }: {
