@@ -206,7 +206,7 @@ export default function ProductsPage() {
                           <TableHead>Name</TableHead>
                           <TableHead>Category</TableHead>
                           <TableHead className="text-right">Price</TableHead>
-                          <TableHead className="text-center">Stock</TableHead>
+                          <TableHead>Stock</TableHead>
                           <TableHead>Created</TableHead>
                           <TableHead className="w-35 text-right">
                             Actions
