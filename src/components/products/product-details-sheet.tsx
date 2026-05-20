@@ -12,7 +12,7 @@ import { formatPrice } from "@/lib/format";
 
 
 
-export function ProductDetailsSheet({
+export default function ProductDetailsSheet({
   product,
   onOpenChange,
 }: {
