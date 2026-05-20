@@ -1,9 +1,6 @@
-import React from 'react'
+import { redirect } from "next/navigation";
 
-type Props = {}
 
-export default function Dasboard({}: Props) {
-  return (
-    <div>Dasboard</div>
-  )
+export default function Dasboard() {
+  return redirect("/dashboard/products");
 }
