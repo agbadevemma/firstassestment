@@ -23,7 +23,7 @@ const items = [
   { title: "Products", url: "/dashboard/products", icon: Package },
 ] as const;
 
-export function AppSidebar() {
+export default function AppSidebar() {
   const currentPath = usePathname();
 
   return (
@@ -35,7 +35,7 @@ export function AppSidebar() {
             <Sparkles className="h-4 w-4" />
           </div>
           <div className="flex flex-col group-data-[collapsible=icon]:hidden">
-            <span className="text-sm font-semibold leading-tight">Northwind</span>
+            <span className="text-sm font-semibold leading-tight">NorthProduct</span>
             <span className="text-xs text-muted-foreground leading-tight">
               Admin Suite
             </span>
